@@ -92,6 +92,6 @@ abstract class ZohoCredentials
 
     protected function getErrorMessages()
     {
-        return trans('zoauth::zoauth');
+        return trans('zoho-oauth::zoauth');
     }
 }

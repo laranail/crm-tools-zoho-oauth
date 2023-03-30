@@ -23,13 +23,6 @@ class ZohoOAuthServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        // Automatically apply the package configuration
-        $this->mergeConfigFrom($this->path.'config/config.php', $this->name);
-
-        $this->loadTranslationsFrom(
-            __DIR__.'/../resources/lang/', 'zoauth'
-        );
-
         $this->app->bind(ZohoOAuthInit::class, function ($app) {
             $config = $app['config']->get('zoho-oauth');
 
@@ -75,8 +68,7 @@ class ZohoOAuthServiceProvider extends ServiceProvider
             ->publishAssets(name: $this->name, path: $this->path, namespace: $this->generatePackageNamespace($this->namespace))
             ->loadTranslations(path: $this->path, namespace: $this->generatePackageNamespace($this->namespace))
             ->loadViews(path: $this->path, namespace: $this->generatePackageNamespace($this->namespace))
-            ->loadMigrations(path: $this->path)
-            ->loadRoutes(path: $this->path);
+            ->loadMigrations(path: $this->path);
     }
 
 }
