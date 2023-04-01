@@ -31,7 +31,7 @@ composer require usipcom/laravel-zoho-oauth
 
 ### 02 Update your `.env` variables
 
-Add the following variables and update accordingly. [Follow these instruction](instructions.md)
+Add the following variables and update accordingly. [Follow these instruction](docs/instructions.md)
 
 ```dotenv
 # Zoho OAuth Credentials
