@@ -15,7 +15,7 @@ To use this package,
     | Zoho Books        | [API Documentation](https://www.zoho.com/books/api/v3/)       |
     | Zoho Projects     | [API Documentation](https://www.zoho.com/projects/help/rest-api/get-tickets-api.html/)       |
 
-3. Ensure you have Zoho API Client ID, Zoho Client API Secret and Zoho authorization code. If not, [follow these instruction](instructions.md)
+3. Ensure you have Zoho API Client ID, Zoho Client API Secret and Zoho authorization code. If not, [follow these instructions](instructions.md)
 
 
 ## Usage
@@ -31,7 +31,7 @@ composer require usipcom/laravel-zoho-oauth
 
 ### 02 Update your `.env` variables
 
-Add the following variables and update accordingly. [Follow these instruction](instructions.md)
+Add the following variables and update accordingly. [Follow these instructions](instructions.md)
 
 ```dotenv
 # Zoho OAuth Credentials
