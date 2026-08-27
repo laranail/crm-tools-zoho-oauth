@@ -25,7 +25,7 @@ To use this package,
 Use the Composer package manager to install this package into your Laravel project:
 
 ```bash
-composer require usipcom/laravel-zoho-oauth
+composer require laranail/crm-tools-zoho-oauth
 ```
 
 
@@ -114,7 +114,7 @@ You may get the latest authorization token as follows
 ```php
 namespace App\Http\Controllers;
 
-use USIPCOM\ZohoOAuth\Models\ZohoOauth;
+use Simtabi\Laranail\CrmTools\ZohoOAuth\Models\ZohoOauth;
 use Illuminate\Support\Facades\Http;
 
 class ZohoController extends Controller {

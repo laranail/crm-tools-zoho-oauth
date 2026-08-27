@@ -1,6 +1,8 @@
-<?php declare(strict_types=1);
+<?php
 
-namespace USIPCOM\ZohoOAuth\Contracts;
+declare(strict_types=1);
+
+namespace Simtabi\Laranail\CrmTools\ZohoOAuth\Contracts;
 
 interface ZohoCredentialsInterface
 {

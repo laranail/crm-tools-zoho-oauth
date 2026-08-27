@@ -1,9 +1,11 @@
-<?php declare(strict_types=1);
+<?php
 
-namespace USIPCOM\ZohoOAuth\Console;
+declare(strict_types=1);
+
+namespace Simtabi\Laranail\CrmTools\ZohoOAuth\Console;
 
 use Illuminate\Console\Command;
-use USIPCOM\ZohoOAuth\Services\ZohoOAuthRefresh;
+use Simtabi\Laranail\CrmTools\ZohoOAuth\Services\ZohoOAuthRefresh;
 
 class ZohoOAuthRefreshCommand extends Command
 {

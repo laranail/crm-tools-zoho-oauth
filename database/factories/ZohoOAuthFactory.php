@@ -1,10 +1,12 @@
-<?php declare(strict_types=1);
+<?php
 
-namespace USIPCOM\ZohoOAuth\Database\Factories;
+declare(strict_types=1);
+
+namespace Simtabi\Laranail\CrmTools\ZohoOAuth\Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
-use USIPCOM\ZohoOAuth\Models\ZohoOauth;
+use Simtabi\Laranail\CrmTools\ZohoOAuth\Models\ZohoOauth;
 
 class ZohoOAuthFactory extends Factory
 {
@@ -24,8 +26,8 @@ class ZohoOAuthFactory extends Factory
     {
         return [
             'refresh_token' => Str::random(32),
-            'access_token'  => Str::random(40),
-            'expires_at'    => now()->addMinutes(50),
+            'access_token' => Str::random(40),
+            'expires_at' => now()->addMinutes(50),
         ];
     }
 

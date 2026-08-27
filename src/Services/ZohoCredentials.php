@@ -1,11 +1,13 @@
-<?php declare(strict_types=1);
+<?php
 
-namespace USIPCOM\ZohoOAuth\Services;
+declare(strict_types=1);
 
-use RuntimeException;
+namespace Simtabi\Laranail\CrmTools\ZohoOAuth\Services;
+
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Http;
-use USIPCOM\ZohoOAuth\Models\ZohoOauth;
+use RuntimeException;
+use Simtabi\Laranail\CrmTools\ZohoOAuth\Models\ZohoOauth;
 
 abstract class ZohoCredentials
 {
@@ -21,16 +23,16 @@ abstract class ZohoCredentials
 
     public function __construct(string $baseUrl, string $clientId, string $clientSecret, string $code)
     {
-        $this->baseUrl      = $baseUrl;
-        $this->clientId     = $clientId;
+        $this->baseUrl = $baseUrl;
+        $this->clientId = $clientId;
         $this->clientSecret = $clientSecret;
-        $this->code         = $code;
+        $this->code = $code;
     }
 
     public function getInitCredentials(): array
     {
         return array_merge($this->getClientBody(), [
-            'code'       => $this->code,
+            'code' => $this->code,
             'grant_type' => 'authorization_code',
         ]);
     }
@@ -38,7 +40,7 @@ abstract class ZohoCredentials
     public function getClientBody(): array
     {
         return [
-            'client_id'     => $this->clientId,
+            'client_id' => $this->clientId,
             'client_secret' => $this->clientSecret,
         ];
     }
@@ -69,7 +71,7 @@ abstract class ZohoCredentials
     {
         return array_merge($this->getClientBody(), [
             'refresh_token' => $this->getRefreshToken(),
-            'grant_type'    => 'refresh_token',
+            'grant_type' => 'refresh_token',
         ]);
     }
 

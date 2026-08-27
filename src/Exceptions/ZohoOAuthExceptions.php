@@ -1,10 +1,9 @@
-<?php declare(strict_types=1);
+<?php
 
-namespace USIPCOM\ZohoOAuth\Exceptions;
+declare(strict_types=1);
+
+namespace Simtabi\Laranail\CrmTools\ZohoOAuth\Exceptions;
 
 use Exception;
 
-class ZohoOAuthExceptions extends Exception
-{
-
-}
+class ZohoOAuthExceptions extends Exception {}

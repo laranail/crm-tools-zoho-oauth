@@ -1,6 +1,8 @@
-<?php declare(strict_types=1);
+<?php
 
-namespace USIPCOM\ZohoOAuth\Facades;
+declare(strict_types=1);
+
+namespace Simtabi\Laranail\CrmTools\ZohoOAuth\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
@@ -13,6 +15,6 @@ class ZohoOAuthFacade extends Facade
      */
     protected static function getFacadeAccessor()
     {
-        return 'zoho-oauth';
+        return 'laranail-crm-tools-zoho-oauth';
     }
 }

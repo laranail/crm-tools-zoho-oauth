@@ -1,8 +1,10 @@
-<?php declare(strict_types=1);
+<?php
 
-namespace USIPCOM\ZohoOAuth\Services;
+declare(strict_types=1);
 
-use USIPCOM\ZohoOAuth\Contracts\ZohoCredentialsInterface;
+namespace Simtabi\Laranail\CrmTools\ZohoOAuth\Services;
+
+use Simtabi\Laranail\CrmTools\ZohoOAuth\Contracts\ZohoCredentialsInterface;
 
 class ZohoOAuthInit extends ZohoCredentials implements ZohoCredentialsInterface
 {
@@ -22,11 +24,11 @@ class ZohoOAuthInit extends ZohoCredentials implements ZohoCredentialsInterface
     public function prepareData($responseData): array
     {
         return [
-            'access_token'  => $responseData['access_token'],
+            'access_token' => $responseData['access_token'],
             'refresh_token' => $responseData['refresh_token'],
-            'api_domain'    => $responseData['api_domain'],
-            'token_type'    => $responseData['token_type'],
-            'expires_at'    => now()->addSeconds($responseData['expires_in']),
+            'api_domain' => $responseData['api_domain'],
+            'token_type' => $responseData['token_type'],
+            'expires_at' => now()->addSeconds($responseData['expires_in']),
         ];
     }
 }

@@ -1,8 +1,7 @@
-<?php declare(strict_types=1);
+<?php
 
-namespace USIPCOM\ZohoOAuth;
+declare(strict_types=1);
 
-class ZohoOAuth
-{
+namespace Simtabi\Laranail\CrmTools\ZohoOAuth;
 
-}
+class ZohoOAuth {}
