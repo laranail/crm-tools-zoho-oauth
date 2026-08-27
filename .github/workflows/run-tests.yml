@@ -4,52 +4,43 @@ on: [ push, pull_request ]
 
 jobs:
   test:
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
+
     strategy:
       fail-fast: false
       matrix:
         os: [ ubuntu-latest ]
-        php: [ '8.0', 8.1, 8.2 ]
-        laravel: [ 8.*, 9.*, 10.* ]
-        dependency-version: [ prefer-stable ]
+        php: [ '8.4', '8.5' ]
+        laravel: [ 13.* ]
+        stability: [ prefer-lowest, prefer-stable ]
         include:
-          - laravel: 10.*
-            testbench: 8.*
-            carbon: ^2.63
-          - laravel: 9.*
-            testbench: 7.*
-            carbon: ^2.63
-          - laravel: 8.*
-            testbench: 6.*
-            carbon: ^2.63
-        exclude:
-          - php: '8.0'
-            laravel: 10.*
+          - laravel: 13.*
+            testbench: 11.*
 
-
-    name: PHP ${{ matrix.php }} - L${{ matrix.laravel }}
+    name: PHP ${{ matrix.php }} - L${{ matrix.laravel }} - ${{ matrix.stability }}
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@a37ce9120846195fa4ece8f58b268e6043cb2f26 # v3
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
       - name: Cache dependencies
-        uses: actions/cache@6f8efc29b200d32929f49075959781ed54ec270c # v3
+        uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
         with:
-          path: ~/.composer/cache/files
-          key: dependencies-laravel-${{ matrix.laravel }}-php-${{ matrix.php }}-composer-${{ hashFiles('composer.json') }}
+          path: ~/.cache/composer/files
+          key: dependencies-laravel-${{ matrix.laravel }}-php-${{ matrix.php }}-${{ matrix.stability }}-composer-${{ hashFiles('composer.json') }}
+          restore-keys: dependencies-laravel-${{ matrix.laravel }}-php-${{ matrix.php }}-
 
       - name: Setup PHP
         uses: shivammathur/setup-php@f3e473d116dcccaddc5834248c87452386958240 # v2
         with:
           php-version: ${{ matrix.php }}
-          extensions: dom, curl, libxml, mbstring, zip, pcntl, pdo, sqlite, pdo_sqlite, bcmath, soap, intl, gd, exif, iconv, imagick
+          extensions: dom, curl, libxml, mbstring, zip, fileinfo, intl, pdo_sqlite, sqlite3, bcmath
           coverage: none
 
       - name: Install dependencies
         run: |
           composer require "laravel/framework:${{ matrix.laravel }}" "orchestra/testbench:${{ matrix.testbench }}" --no-interaction --no-update
-          composer update --${{ matrix.dependency-version }} --prefer-dist --no-interaction --no-suggest
+          composer update --${{ matrix.stability }} --prefer-dist --no-interaction --no-progress
 
       - name: Execute tests
-        run: vendor/bin/phpunit
+        run: vendor/bin/pest --ci
