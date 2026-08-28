@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace Simtabi\Laranail\CrmTools\ZohoOAuth\Tests;
 
-use Orchestra\Testbench\TestCase as BaseTestCase;
 use Simtabi\Laranail\CrmTools\ZohoOAuth\Providers\ZohoOAuthServiceProvider;
+use Simtabi\Laranail\Package\Tools\Testing\IsolatedTestCase;
 
-abstract class TestCase extends BaseTestCase
+abstract class TestCase extends IsolatedTestCase
 {
     protected function getPackageProviders($app): array
     {
