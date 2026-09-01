@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-use Illuminate\Support\Facades\Lang;
 use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Facades\Lang;
 use Illuminate\Support\ServiceProvider;
-use Simtabi\Laranail\CrmTools\ZohoOAuth\ZohoOAuth;
 use Simtabi\Laranail\CrmTools\ZohoOAuth\Facades\ZohoOAuthFacade;
 use Simtabi\Laranail\CrmTools\ZohoOAuth\Providers\ZohoOAuthServiceProvider;
+use Simtabi\Laranail\CrmTools\ZohoOAuth\ZohoOAuth;
 
 /**
  * THE PROVIDER COULD NOT BOOT.
