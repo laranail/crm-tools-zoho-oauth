@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Simtabi\Laranail\CrmTools\ZohoOAuth\Services;
 
-use Simtabi\Laranail\CrmTools\ZohoOAuth\Models\ZohoOauth;
 use Simtabi\Laranail\CrmTools\ZohoOAuth\Contracts\ZohoCredentialsInterface;
+use Simtabi\Laranail\CrmTools\ZohoOAuth\Models\ZohoOauth;
 
 class ZohoOAuthRefresh extends ZohoCredentials implements ZohoCredentialsInterface
 {
@@ -29,11 +29,11 @@ class ZohoOAuthRefresh extends ZohoCredentials implements ZohoCredentialsInterfa
     public function prepareData(array $responseData): array
     {
         return [
-            'access_token'  => $responseData['access_token'],
+            'access_token' => $responseData['access_token'],
             'refresh_token' => $this->getRefreshToken(),
-            'api_domain'    => $responseData['api_domain'],
-            'token_type'    => $responseData['token_type'],
-            'expires_at'    => now()->addSeconds($responseData['expires_in']),
+            'api_domain' => $responseData['api_domain'],
+            'token_type' => $responseData['token_type'],
+            'expires_at' => now()->addSeconds($responseData['expires_in']),
         ];
     }
 }
