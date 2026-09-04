@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Simtabi\Laranail\CrmTools\ZohoOAuth\Services;
 
+use RuntimeException;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Http;
-use RuntimeException;
 use Simtabi\Laranail\CrmTools\ZohoOAuth\Models\ZohoOauth;
 
 abstract class ZohoCredentials
@@ -32,7 +32,7 @@ abstract class ZohoCredentials
     public function getInitCredentials(): array
     {
         return array_merge($this->getClientBody(), [
-            'code' => $this->code,
+            'code'       => $this->code,
             'grant_type' => 'authorization_code',
         ]);
     }
@@ -40,7 +40,7 @@ abstract class ZohoCredentials
     public function getClientBody(): array
     {
         return [
-            'client_id' => $this->clientId,
+            'client_id'     => $this->clientId,
             'client_secret' => $this->clientSecret,
         ];
     }
@@ -59,7 +59,7 @@ abstract class ZohoCredentials
 
     public function getEndPointUrl(): string
     {
-        return $this->baseUrl.self::END_POINT;
+        return $this->baseUrl . self::END_POINT;
     }
 
     public function saveTokensToDb(array $data)
@@ -71,7 +71,7 @@ abstract class ZohoCredentials
     {
         return array_merge($this->getClientBody(), [
             'refresh_token' => $this->getRefreshToken(),
-            'grant_type' => 'refresh_token',
+            'grant_type'    => 'refresh_token',
         ]);
     }
 
