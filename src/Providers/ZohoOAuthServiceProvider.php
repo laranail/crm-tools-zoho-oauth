@@ -4,14 +4,14 @@ declare(strict_types=1);
 
 namespace Simtabi\Laranail\CrmTools\ZohoOAuth\Providers;
 
-use Simtabi\Laranail\CrmTools\ZohoOAuth\Console\ZohoOAuthInitCommand;
-use Simtabi\Laranail\CrmTools\ZohoOAuth\Console\ZohoOAuthPruneCommand;
-use Simtabi\Laranail\CrmTools\ZohoOAuth\Console\ZohoOAuthRefreshCommand;
+use Simtabi\Laranail\Package\Tools\Package;
 use Simtabi\Laranail\CrmTools\ZohoOAuth\ZohoOAuth;
 use Simtabi\Laranail\CrmTools\ZohoOAuth\ZohoOAuthInit;
 use Simtabi\Laranail\CrmTools\ZohoOAuth\ZohoOAuthRefresh;
-use Simtabi\Laranail\Package\Tools\Package;
 use Simtabi\Laranail\Package\Tools\Providers\PackageServiceProvider;
+use Simtabi\Laranail\CrmTools\ZohoOAuth\Console\ZohoOAuthInitCommand;
+use Simtabi\Laranail\CrmTools\ZohoOAuth\Console\ZohoOAuthPruneCommand;
+use Simtabi\Laranail\CrmTools\ZohoOAuth\Console\ZohoOAuthRefreshCommand;
 
 /**
  * This provider could not boot.
