@@ -16,13 +16,9 @@ jobs:
       matrix:
         os: [ ubuntu-latest ]
         php: [ '8.4', '8.5' ]
-        laravel: [ 13.* ]
         stability: [ prefer-lowest, prefer-stable ]
-        include:
-          - laravel: 13.*
-            testbench: 11.*
 
-    name: PHP ${{ matrix.php }} - L${{ matrix.laravel }} - ${{ matrix.stability }}
+    name: PHP ${{ matrix.php }} - ${{ matrix.stability }}
 
     steps:
       - name: Checkout code
@@ -57,7 +53,6 @@ jobs:
 
       - name: Install dependencies
         run: |
-          composer require "laravel/framework:${{ matrix.laravel }}" "orchestra/testbench:${{ matrix.testbench }}" --no-interaction --no-update
           composer update --${{ matrix.stability }} --prefer-dist --no-interaction --no-progress
 
       - name: Execute tests
