@@ -18,7 +18,7 @@ class ZohoOAuthInit extends ZohoCredentials implements ZohoCredentialsInterface
 
         $this->saveTokensToDb($this->prepareData($responseData));
 
-        return trans('zoho-oauth::zoauth.successful_save');
+        return trans('laranail/crm-tools-zoho-oauth::zoauth.successful_save');
     }
 
     public function prepareData($responseData): array

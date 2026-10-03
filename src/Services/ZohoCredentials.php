@@ -94,6 +94,6 @@ abstract class ZohoCredentials
 
     protected function getErrorMessages()
     {
-        return trans('zoho-oauth::zoauth');
+        return trans('laranail/crm-tools-zoho-oauth::zoauth');
     }
 }
