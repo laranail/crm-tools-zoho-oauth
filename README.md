@@ -26,7 +26,33 @@ composer require laranail/crm-tools-zoho-oauth:^0.1
 
 Credentials, the database table and the config file are covered in [Installation](docs/installation.md).
 
-## Quick start
+## Quick start guide and usage
+
+### Getting started
+
+1. Add your Zoho credentials to `.env`, from the Zoho API console ([Create Zoho OAuth credentials](docs/recipes/create-zoho-oauth-credentials.md)):
+
+   ```dotenv
+   BASE_OAUTH_URL=https://accounts.zoho.com
+   ZOHO_CLIENT_ID=
+   ZOHO_CLIENT_SECRET=
+   ZOHO_CODE=
+   ```
+
+2. Publish the migration for the `zoho_oauth` table, then run it:
+
+   ```bash
+   php artisan vendor:publish --tag=laranail::crm-tools-zoho-oauth-migrations
+   php artisan migrate
+   ```
+
+3. Exchange the grant code for the first refresh and access token:
+
+   ```bash
+   php artisan zoauth:init
+   ```
+
+### Usage
 
 ```php
 use Illuminate\Support\Facades\Http;
@@ -38,6 +64,14 @@ $token = ZohoOauth::latest()->first()?->auth_token; // "Zoho-oauthtoken 1000.…
 $leads = Http::withHeaders(['Authorization' => $token])
     ->get('https://www.zohoapis.com/crm/v2/Leads')
     ->json('data');
+```
+
+Keep the access token fresh by scheduling a refresh in `routes/console.php`:
+
+```php
+use Illuminate\Support\Facades\Schedule;
+
+Schedule::command('zoauth:refresh')->everyThirtyMinutes();
 ```
 
 The full walkthrough is in [Getting started](docs/getting-started.md); everything else is in the [documentation index](#documentation).
