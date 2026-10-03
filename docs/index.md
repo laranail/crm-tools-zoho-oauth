@@ -122,7 +122,7 @@ class ZohoController extends Controller {
     public function index(){
     
       $token = ZohoOauth::latest()->first()?->auth_token;
-     // "Zoho-oauthtoken 1000.27cb28ac001d4f1b610f06c414fc5d5a.8fa8f34f61e4c2cc9c466e8aaccba395"
+     // "Zoho-oauthtoken 1000.xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy"
 
       $response = Http::withHeaders(['Authorization' => $token])->get(//zoho url);
 

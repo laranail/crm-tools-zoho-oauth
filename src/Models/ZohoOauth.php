@@ -6,6 +6,7 @@ namespace Simtabi\Laranail\CrmTools\ZohoOAuth\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Simtabi\Laranail\CrmTools\ZohoOAuth\Database\Factories\ZohoOAuthFactory;
 
 class ZohoOauth extends Model
 {
@@ -22,6 +23,12 @@ class ZohoOauth extends Model
     protected $appends = [
         'auth_token', 'is_expired',
     ];
+
+    /** The factory lives in the package namespace, where Laravel's naming guess cannot find it. */
+    protected static function newFactory(): ZohoOAuthFactory
+    {
+        return ZohoOAuthFactory::new();
+    }
 
     protected function getAuthTokenAttribute()
     {

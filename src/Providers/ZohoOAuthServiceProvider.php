@@ -32,7 +32,7 @@ class ZohoOAuthServiceProvider extends PackageServiceProvider
             ->name(name: 'laranail/crm-tools-zoho-oauth')
             ->hasConfigFile(configFileName: 'crm-tools-zoho-oauth')
             ->hasTranslations()
-            ->hasMigrations();
+            ->hasMigration(migrationFileName: 'create_zoho_oauth_table');
     }
 
     public function packageRegistered(): void
