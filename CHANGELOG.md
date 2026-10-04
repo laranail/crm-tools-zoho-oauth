@@ -28,6 +28,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   bound, so the container tried to autowire four `string` parameters and both commands threw a
   `BindingResolutionException`. The bindings now name the real classes.
 
+### Removed
+
+- **The legacy `docs/index.md` and `docs/instructions.md` pages.** Their content had already
+  moved: prerequisites, install, environment and config to `installation.md`; init, refresh,
+  scheduling and token use to `getting-started.md` and `recipes/schedule-token-maintenance.md`;
+  credential setup (with all eight `images/Step-0N.png`) to
+  `recipes/create-zoho-oauth-credentials.md`. They were also wrong where they differed: they showed
+  a `revoke()` method that does not exist, spelled the table `zoho_outh`, and linked a pre-rename
+  Jekyll path. `docs/images/` stays, since the recipe uses it.
+
 ## 1.0.0 - 2023-30-03
 
 - initial release
