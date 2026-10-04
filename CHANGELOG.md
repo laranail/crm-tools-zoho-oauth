@@ -2,8 +2,10 @@
 
 All notable changes to `laravel-zoho-oauth` will be documented in this file
 
-## Unreleased
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
 ### Changed
 
 - The README follows the org documentation standard. Its content moved into `docs/` (installation,
@@ -29,3 +31,5 @@ All notable changes to `laravel-zoho-oauth` will be documented in this file
 ## 1.0.0 - 2023-30-03
 
 - initial release
+
+[Unreleased]: https://github.com/laranail/crm-tools-zoho-oauth/compare/v0.1.0...HEAD
