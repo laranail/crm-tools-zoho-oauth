@@ -40,6 +40,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Removed
 
+- **`docs/_config.yml`**, the GitHub Pages (Jekyll) theme config. Pages is not enabled for this repository, so nothing read it; the docs are served by the documentation site. `docs/images/` stays: the credentials recipe uses it.
+
 - **The legacy `docs/index.md` and `docs/instructions.md` pages.** Their content had already
   moved: prerequisites, install, environment and config to `installation.md`; init, refresh,
   scheduling and token use to `getting-started.md` and `recipes/schedule-token-maintenance.md`;
