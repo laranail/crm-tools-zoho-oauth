@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Simtabi\Laranail\CrmTools\ZohoOAuth\Console;
 
-use Illuminate\Console\Command;
+use Simtabi\Laranail\Package\Tools\Commands\Command;
 use Simtabi\Laranail\CrmTools\ZohoOAuth\Models\ZohoOauth;
 
 class ZohoOAuthPruneCommand extends Command
@@ -16,7 +16,20 @@ class ZohoOAuthPruneCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'zoauth:prune';
+    protected $signature = 'laranail::crm-tools-zoho-oauth.prune';
+
+    /**
+     * `zoauth:prune` was this command's name until 0.1.
+     *
+     * Outside the vendor scope, so package-tools' base command prints a deprecation line naming
+     * the replacement whenever it is invoked by it, then runs as before.
+     *
+     * @deprecated `zoauth:prune` is removed no earlier than the next minor after 0.1; use
+     *             `laranail::crm-tools-zoho-oauth.prune`.
+     *
+     * @var array<int, string>
+     */
+    protected $aliases = ['zoauth:prune'];
 
     /**
      * The console command description.

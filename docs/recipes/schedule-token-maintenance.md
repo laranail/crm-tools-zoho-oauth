@@ -10,8 +10,8 @@ The access token usually expires after one hour, so refresh more often than that
 // routes/console.php
 use Illuminate\Support\Facades\Schedule;
 
-Schedule::command('zoauth:refresh')->everyThirtyMinutes();
-Schedule::command('zoauth:prune')->daily();
+Schedule::command('laranail::crm-tools-zoho-oauth.refresh')->everyThirtyMinutes();
+Schedule::command('laranail::crm-tools-zoho-oauth.prune')->daily();
 ```
 
 The scheduler must be running (`php artisan schedule:work` locally, or the `schedule:run` cron entry in production). See [Commands](../tools/commands.md) for what each command does.

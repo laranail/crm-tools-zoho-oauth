@@ -49,7 +49,7 @@ Credentials, the database table and the config file are covered in [Installation
 3. Exchange the grant code for the first refresh and access token:
 
    ```bash
-   php artisan zoauth:init
+   php artisan laranail::crm-tools-zoho-oauth.init
    ```
 
 ### Usage
@@ -58,7 +58,7 @@ Credentials, the database table and the config file are covered in [Installation
 use Illuminate\Support\Facades\Http;
 use Simtabi\Laranail\CrmTools\ZohoOAuth\Models\ZohoOauth;
 
-// After `php artisan zoauth:init` has stored the first refresh and access token.
+// After `php artisan laranail::crm-tools-zoho-oauth.init` has stored the first refresh and access token.
 $token = ZohoOauth::latest()->first()?->auth_token; // "Zoho-oauthtoken 1000.…"
 
 $leads = Http::withHeaders(['Authorization' => $token])
@@ -71,7 +71,7 @@ Keep the access token fresh by scheduling a refresh in `routes/console.php`:
 ```php
 use Illuminate\Support\Facades\Schedule;
 
-Schedule::command('zoauth:refresh')->everyThirtyMinutes();
+Schedule::command('laranail::crm-tools-zoho-oauth.refresh')->everyThirtyMinutes();
 ```
 
 The full walkthrough is in [Getting started](docs/getting-started.md); everything else is in the [documentation index](#documentation).
@@ -90,7 +90,7 @@ Hosted at [opensource.simtabi.com/documentation/laranail/crm-tools-zoho-oauth](h
 
 ### Reference
 
-- [Commands](docs/tools/commands.md) — `zoauth:init`, `zoauth:refresh` and `zoauth:prune`.
+- [Commands](docs/tools/commands.md) — `laranail::crm-tools-zoho-oauth.init`, `laranail::crm-tools-zoho-oauth.refresh` and `laranail::crm-tools-zoho-oauth.prune`.
 - [The `ZohoOauth` model](docs/tools/zoho-oauth-model.md) — the stored token row and its `auth_token` and `is_expired` attributes.
 
 ### Recipes

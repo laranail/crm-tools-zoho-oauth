@@ -11,7 +11,7 @@ return [
     'invalid_client_secret' => 'You have passed an invalid Client secret. Specify the correct client secret.',
     'invalid_request'       => 'You have not specified a valid so id parameter.',
     'default'               => 'The following error occurred - :error',
-    'no_refresh_token'      => 'Sorry, no access token found in the database. Run zoauth:init first.',
+    'no_refresh_token'      => 'Sorry, no access token found in the database. Run laranail::crm-tools-zoho-oauth.init first.',
     'db_empty'              => 'Database empty, nothing to clean. Consider running zoauth:prune instead.',
     'successful_save'       => 'Successfully saved authorization codes to the database.',
 ];
