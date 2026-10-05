@@ -58,7 +58,7 @@ ZOHO_CODE=
 
 The scopes you choose in step 6 are fixed into the grant code. The package does not read a scope setting, so there is no `ZOHO_SCOPE` variable to set; earlier versions of this page listed one.
 
-Next, run `php artisan zoauth:init` within the code's lifetime; see [Getting started](../getting-started.md).
+Next, run `php artisan laranail::crm-tools-zoho-oauth.init` within the code's lifetime; see [Getting started](../getting-started.md).
 
 ---
 

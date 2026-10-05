@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Simtabi\Laranail\CrmTools\ZohoOAuth\Console;
 
-use Illuminate\Console\Command;
+use Simtabi\Laranail\Package\Tools\Commands\Command;
 use Simtabi\Laranail\CrmTools\ZohoOAuth\Services\ZohoOAuthRefresh;
 
 class ZohoOAuthRefreshCommand extends Command
@@ -14,7 +14,20 @@ class ZohoOAuthRefreshCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'zoauth:refresh';
+    protected $signature = 'laranail::crm-tools-zoho-oauth.refresh';
+
+    /**
+     * `zoauth:refresh` was this command's name until 0.1.
+     *
+     * Outside the vendor scope, so package-tools' base command prints a deprecation line naming
+     * the replacement whenever it is invoked by it, then runs as before.
+     *
+     * @deprecated `zoauth:refresh` is removed no earlier than the next minor after 0.1; use
+     *             `laranail::crm-tools-zoho-oauth.refresh`.
+     *
+     * @var array<int, string>
+     */
+    protected $aliases = ['zoauth:refresh'];
 
     /**
      * The console command description.

@@ -9,7 +9,7 @@ This assumes [Installation](installation.md) is done: credentials are in `.env` 
 Run the init command whenever you have a new grant `code`. It exchanges the code for a `refresh_token` and an `access_token` and adds a row to the `zoho_oauth` table:
 
 ```bash
-php artisan zoauth:init
+php artisan laranail::crm-tools-zoho-oauth.init
 ```
 
 It fails when:
@@ -22,7 +22,7 @@ It fails when:
 To generate a new `access_token` at any time:
 
 ```bash
-php artisan zoauth:refresh
+php artisan laranail::crm-tools-zoho-oauth.refresh
 ```
 
 This adds a row carrying a new `access_token`, the existing `refresh_token`, and an expiry taken from Zoho's `expires_in` (usually one hour).
@@ -34,7 +34,7 @@ The `access_token` expires after a set period, usually one hour; after that the 
 ```php
 use Illuminate\Support\Facades\Schedule;
 
-Schedule::command('zoauth:refresh')->everyThirtyMinutes();
+Schedule::command('laranail::crm-tools-zoho-oauth.refresh')->everyThirtyMinutes();
 ```
 
 Laravel 11 and later have no `app/Console/Kernel.php` by default, so the scheduler lives in `routes/console.php`. [Schedule token maintenance](recipes/schedule-token-maintenance.md) adds pruning to the same file.
@@ -66,7 +66,7 @@ class ZohoController extends Controller
 
 ## Delete old tokens
 
-Every refresh adds a row, so the table grows. `zoauth:prune` keeps the 10 most recent rows and deletes the rest; schedule it daily as shown in [Schedule token maintenance](recipes/schedule-token-maintenance.md).
+Every refresh adds a row, so the table grows. `laranail::crm-tools-zoho-oauth.prune` keeps the 10 most recent rows and deletes the rest; schedule it daily as shown in [Schedule token maintenance](recipes/schedule-token-maintenance.md).
 
 ## Revoke a token
 

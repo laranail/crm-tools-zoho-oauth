@@ -6,7 +6,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+
 ### Changed
+
+- **The Artisan commands are `laranail::crm-tools-zoho-oauth.init`, `.refresh` and `.prune`**, were
+  `zoauth:init`, `zoauth:refresh` and `zoauth:prune`. Command names share one flat registry with the
+  application and every other package. The commands extend `laranail/package-tools`' base
+  `Command` (constraint now `^0.1.3`), which accepts the `::` separator and warns on the old names.
+- The "no refresh token" message names `laranail::crm-tools-zoho-oauth.init`.
+- **Formatting is a CI gate.** A `Static analysis` workflow runs `vendor/bin/laranail-pint --test`
+  against the shared laranail config on every pull request; nothing checked it before.
 
 - The README follows the org documentation standard. Its content moved into `docs/` (installation,
   getting started, configuration, architecture, release, command and model reference, two recipes),
@@ -37,6 +46,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   `recipes/create-zoho-oauth-credentials.md`. They were also wrong where they differed: they showed
   a `revoke()` method that does not exist, spelled the table `zoho_outh`, and linked a pre-rename
   Jekyll path. `docs/images/` stays, since the recipe uses it.
+
+### Deprecated
+
+- `zoauth:init`, `zoauth:refresh` and `zoauth:prune`. Each still runs, including from a schedule,
+  after printing one `Deprecated:` line naming its replacement, until the next minor after 0.1.
+  Update `Schedule::command()` calls to the scoped names.
 
 ## 1.0.0 - 2023-30-03
 
