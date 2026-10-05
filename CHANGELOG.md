@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- `illuminate/database` is now declared in `require` at `^13.0`. `src/` imports it, and it was only arriving transitively.
 - **The Artisan commands are `laranail::crm-tools-zoho-oauth.init`, `.refresh` and `.prune`**, were
   `zoauth:init`, `zoauth:refresh` and `zoauth:prune`. Command names share one flat registry with the
   application and every other package. The commands extend `laranail/package-tools`' base
