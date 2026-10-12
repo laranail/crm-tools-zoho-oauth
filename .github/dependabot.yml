@@ -7,3 +7,14 @@ updates:
       time: "02:00"
     open-pull-requests-limit: 10
     target-branch: main
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+      time: "06:00"
+      timezone: America/New_York
+    groups:
+      minor-and-patch:
+        patterns: ["*"]
+        update-types: [minor, patch]
