@@ -9,6 +9,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Test credentials are generated at run time with `TestCredentials` instead of being written into
+  the tests as literals, which secret scanners reported as leaks. A new guard test,
+  `tests/Architecture/NoLiteralCredentialsTest.php`, fails the suite if a literal credential is
+  added back. The `laranail/package-tools` floor is now `^0.1.9`, the first release that ships them.
+
 - `illuminate/database` is now declared in `require` at `^13.0`. `src/` imports it, and it was only arriving transitively.
 - **The Artisan commands are `laranail::crm-tools-zoho-oauth.init`, `.refresh` and `.prune`**, were
   `zoauth:init`, `zoauth:refresh` and `zoauth:prune`. Command names share one flat registry with the

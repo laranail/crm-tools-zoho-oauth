@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 use Illuminate\Support\Facades\Config;
+use Simtabi\Laranail\Package\Tools\Testing\TestCredentials;
 use Simtabi\Laranail\CrmTools\ZohoOAuth\Services\ZohoOAuthInit;
 use Simtabi\Laranail\CrmTools\ZohoOAuth\Services\ZohoOAuthRefresh;
 
@@ -18,7 +19,7 @@ dataset('services', [ZohoOAuthInit::class, ZohoOAuthRefresh::class]);
 it('resolves the service the commands use, built from the package config', function (string $service): void {
     Config::set('laranail.crm-tools-zoho-oauth.base_oauth_url', 'https://accounts.zoho.com/oauth/v2/');
     Config::set('laranail.crm-tools-zoho-oauth.client_id', '1000.ACMECLIENT');
-    Config::set('laranail.crm-tools-zoho-oauth.client_secret', 'acme-secret');
+    Config::set('laranail.crm-tools-zoho-oauth.client_secret', TestCredentials::secret('zoho'));
     Config::set('laranail.crm-tools-zoho-oauth.code', '1000.grant-code');
 
     expect(app($service))->toBeInstanceOf($service);
